@@ -1,4 +1,4 @@
-class item:
+class Item:
     def __init__(self, name, price):
         self.name = name
         self.price = price
@@ -19,6 +19,10 @@ class ShoppingCart:
 
     def remove_items(self, item):
         self.items.remove(item)
+
+    def get_item(self, item):
+        return self.items [ self.items.index(item) - 1]
+
 
 
 
