@@ -8,6 +8,7 @@ class TestShoppingCart(unittest.TestCase):
         self.juice = item("orange_Juice", 3)
         self.ShoppingCart = ShoppingCart()
         self.ShoppingCart.add_item(self.Bread)
+
     def tearDown(self):
         pass
 
@@ -26,8 +27,6 @@ class TestShoppingCart(unittest.TestCase):
     def test_remove_elements(self):
         self.ShoppingCart.remove_items(self.Bread)
         self.assertFalse(self.ShoppingCart.contains_items())
-        
-
 
 
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 import unittest
-from shoping_cart import Item, ShoppingCart
+from shoping_cart import Item, ShoppingCart, NotExistsItemError
 
 
 class TestShoppingCart(unittest.TestCase):
@@ -33,6 +33,15 @@ class TestShoppingCart(unittest.TestCase):
         self.assertIs(item, self.Bread)
         self.assertIsNot(item, self.juice)
 
+    def test_exception_to_obtain_juice(self):
+        with self.assertRaises(NotExistsItemError):
+            self.ShoppingCart.get_item(self.juice)
+
+    def test_total_with_a_product(self):
+        total = self.ShoppingCart.total()
+        self.assertGreater(total, 0)
+        self.assertLess(total, self.Bread.price + 1.0)
+        self.assertEqual(total, self.Bread.price)
 
 if __name__ == '__main__':
     unittest.main()
