@@ -10,9 +10,6 @@ class Item:
     def code(self):
         return "{} -> 123456789".format(self.name)
 
-    def __str__(self):
-        return self.name
-
 
 class ShoppingCart:
     def __init__(self):
@@ -20,7 +17,7 @@ class ShoppingCart:
 
     def add_item(self, item):
         self.items.append(item)
-    
+
     def contains_items(self):
         return len(self.items) > 0
 
@@ -36,9 +33,5 @@ class ShoppingCart:
         else:
             return self.items[self.items.index(item) - 1]
 
-
-
-
-
-
-
+    def last(self):
+        return self.items[-1]
